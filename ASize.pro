@@ -1,40 +1,62 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2019-12-07T19:37:45
-#
-#-------------------------------------------------
-
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+#--------------------------------------------------#
+#                                                  #
+# Project created by QtCreator 2019-12-07T19:37:45 #
+# by binaryUnicorn                                 #
+#                                                  #
+#--------------------------------------------------#
+QT += core gui widgets
 TARGET = ASize
 TEMPLATE = app
-
-# The following define makes your compiler emit warnings if you use
-# any feature of Qt which has been marked as deprecated (the exact warnings
-# depend on your compiler). Please consult the documentation of the
-# deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
-
-# You can also make your code fail to compile if you use deprecated APIs.
-# In order to do so, uncomment the following line.
-# You can also select to disable deprecated APIs only up to a certain version of Qt.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
 CONFIG += c++11
+QMAKE_LFLAGS += -no-pie
 
-SOURCES += \
-        main.cpp \
-        MainWindow.cpp
+# Копирование папки в директорию сборки
+#copydata.commands = $(COPY_DIR) $$PWD/data $$OUT_PWD
+#first.depends = $(first) copydata
+#export(first.depends)
+#export(copydata.commands)
+#QMAKE_EXTRA_TARGETS += first copydata
 
-HEADERS += \
-        MainWindow.h
-
-FORMS += \
-        MainWindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+SOURCES += \
+		main.cpp \
+		src/Globals/Constants.cpp \
+		src/Managers/RoutesManager.cpp \
+		src/Modules/About/Assembly/AboutModuleAssembly.cpp \
+		src/Modules/About/Presenters/AboutPresenter.cpp \
+		src/Modules/About/Views/AboutWindow.cpp \
+		src/Modules/Main/Assembly/MainModuleAssembly.cpp \
+		src/Modules/Main/Views/MainWindow.cpp \
+		src/Modules/Main/Presenters/MainPresenter.cpp \
+		src/Pattern/BaseView.cpp
+
+HEADERS += \
+		src/Globals/Constants.h \
+		src/Managers/RoutesManager.h \
+		src/Modules/About/Assembly/AboutModuleAssembly.h \
+		src/Modules/About/IAboutPresenter.h \
+		src/Modules/About/IAboutView.h \
+		src/Modules/About/Presenters/AboutPresenter.h \
+		src/Modules/About/Views/AboutWindow.h \
+		src/Modules/Main/Assembly/MainModuleAssembly.h \
+		src/Modules/Main/Views/MainWindow.h \
+		src/Modules/Main/IMainPresenter.h \
+		src/Modules/Main/IMainView.h \
+		src/Modules/Main/Presenters/MainPresenter.h \
+		src/Pattern/BasePresenter.h \
+		src/Pattern/BaseView.h \
+		src/Pattern/IMvpPresenter.h \
+		src/Pattern/IMvpView.h
+
+FORMS += \
+		src/Modules/About/Views/AboutWindow.ui \
+		src/Modules/Main/Views/MainWindow.ui
+
+RESOURCES += \
+	resources.qrc

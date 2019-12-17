@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/ic">
+        <file alias="ic_copy">res/ic/ic_copy.png</file>
+    </qresource>
+    <qresource prefix="/img">
+        <file alias="logo">res/img/logo.png</file>
+    </qresource>
+    <qresource prefix="/app">
+        <file alias="appicon">res/appicon.ico</file>
+    </qresource>
+</RCC>

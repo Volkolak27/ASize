@@ -1,11 +1,13 @@
-#include "MainWindow.h"
 #include <QApplication>
+
+#include "src/Managers/RoutesManager.h"
 
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-	MainWindow w;
-	w.show();
+
+	QApplication::setWindowIcon( QIcon(":/app/appicon") );
+	RoutesManager::instance().mainWindowNeedTo(RouteOperation::OPEN);
 
 	return a.exec();
 }
