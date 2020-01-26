@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
+    <width>550</width>
     <height>340</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>520</width>
+    <width>550</width>
     <height>340</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>520</width>
+    <width>550</width>
     <height>340</height>
    </size>
   </property>
@@ -32,22 +32,31 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
-     <number>8</number>
+     <number>6</number>
     </property>
     <property name="topMargin">
-     <number>8</number>
+     <number>0</number>
     </property>
     <property name="rightMargin">
-     <number>8</number>
+     <number>6</number>
     </property>
     <property name="bottomMargin">
-     <number>8</number>
+     <number>6</number>
     </property>
     <property name="spacing">
      <number>4</number>
     </property>
     <item row="1" column="0">
      <widget class="QPushButton" name="resetButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="text">
        <string>Reset to default</string>
       </property>
@@ -76,7 +85,7 @@
        <attribute name="title">
         <string>Android</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_2">
+       <layout class="QGridLayout" name="androidGridLayout">
         <property name="leftMargin">
          <number>8</number>
         </property>
@@ -92,55 +101,35 @@
         <property name="spacing">
          <number>4</number>
         </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>[Coming Soon]</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="proportionTab">
        <attribute name="title">
         <string>Proportion</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_3">
+       <layout class="QGridLayout" name="proportionGridLayout">
         <property name="leftMargin">
-         <number>8</number>
+         <number>0</number>
         </property>
         <property name="topMargin">
-         <number>8</number>
+         <number>0</number>
         </property>
         <property name="rightMargin">
-         <number>8</number>
+         <number>0</number>
         </property>
         <property name="bottomMargin">
-         <number>8</number>
+         <number>0</number>
         </property>
         <property name="spacing">
          <number>4</number>
         </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>[Coming Soon]</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="goldenRatioTab">
        <attribute name="title">
         <string>Golden Ratio</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_4">
+       <layout class="QGridLayout" name="goldenRatioGridLayout">
         <property name="leftMargin">
          <number>8</number>
         </property>
@@ -156,23 +145,13 @@
         <property name="spacing">
          <number>4</number>
         </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>[Coming Soon]</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="colorTab">
        <attribute name="title">
         <string>Color Picker</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_5">
+       <layout class="QGridLayout" name="colorGridLayout">
         <property name="leftMargin">
          <number>8</number>
         </property>
@@ -190,6 +169,23 @@
         </property>
         <item row="0" column="0">
          <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>[Coming Soon]</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="combinatoricsTab">
+       <attribute name="title">
+        <string>Combinatorics</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_5">
           <property name="text">
            <string>[Coming Soon]</string>
           </property>
@@ -219,6 +215,12 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>resetButton</tabstop>
+  <tabstop>aboutButton</tabstop>
+  <tabstop>exitButton</tabstop>
+ </tabstops>
  <resources>
   <include location="../../../../resources.qrc"/>
  </resources>

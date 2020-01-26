@@ -1,10 +1,14 @@
 #include <QApplication>
 
 #include "src/Managers/RoutesManager.h"
+#include <QFontDatabase>
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
 	QApplication a(argc, argv);
+
+	QFontDatabase::addApplicationFont("://Ubuntu-R.ttf");
+	qApp->setFont(QFont("Ubuntu", 11, QFont::Normal, false));
 
 	QApplication::setWindowIcon( QIcon(":/app/appicon") );
 	RoutesManager::instance().mainWindowNeedTo(RouteOperation::OPEN);
