@@ -13,6 +13,7 @@ class IAndroidSizeView : public BaseView
 		virtual void updateXHdpiValue(const QString& value) = 0;
 		virtual void updateXXHdpiValue(const QString& value) = 0;
 		virtual void updateXXXHdpiValue(const QString& value) = 0;
+		virtual void needToResetToDefault() = 0;
 };
 
 #endif // IANDROIDSIZEVIEW_H

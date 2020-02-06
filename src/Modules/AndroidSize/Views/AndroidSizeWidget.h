@@ -31,6 +31,7 @@ class AndroidSizeWidget : public QWidget, public IAndroidSizeView
 		void updateXHdpiValue(const QString& value) override;
 		void updateXXHdpiValue(const QString& value) override;
 		void updateXXXHdpiValue(const QString& value) override;
+		void needToResetToDefault() override;
 
 	protected:
 		// QWidget interface

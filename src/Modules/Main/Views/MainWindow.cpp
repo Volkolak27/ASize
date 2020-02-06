@@ -16,8 +16,6 @@ MainWindow::MainWindow(IMainPresenter* presenter, QWidget* parent) : QMainWindow
 
 	setWindowTitle( QString("%1 %2").arg(Constants::appName, Constants::appVersion) );
 	ui->tabWidget->setCurrentIndex(0);
-
-	ui->resetButton->setVisible(false); //todo: убрать строку в версии 1.1
 }
 
 MainWindow::~MainWindow()
@@ -25,11 +23,16 @@ MainWindow::~MainWindow()
 	delete ui;
 	delete _presenter;
 	_presenter = nullptr;
+	_androidSizeView = nullptr;
+	_proportionView = nullptr;
+	_goldenRatioView = nullptr;
 }
 
 void MainWindow::resetToDefault()
 {
-	//todo: реализовать в версии 1.1
+	_androidSizeView->needToResetToDefault();
+	_proportionView->needToResetToDefault();
+	_goldenRatioView->needToResetToDefault();
 }
 
 void MainWindow::openAbout()
@@ -52,14 +55,18 @@ void MainWindow::showEvent(QShowEvent* event)
 		_isFirstShow = false;
 
 		// Создаем виджеты на вкладках
+		AndroidSizeWidget* androidSizeWidget = AndroidSizeModuleAssembly::buildWidget();
+		ui->androidTab->layout()->addWidget(androidSizeWidget);
+
 		ProportionWidget* proportionWidget = ProportionModuleAssembly::buildWidget();
 		ui->proportionTab->layout()->addWidget(proportionWidget);
 
 		GoldenRatioWidget* goldenRatioWidget = GoldenRatioModuleAssembly::buildWidget();
 		ui->goldenRatioTab->layout()->addWidget(goldenRatioWidget);
 
-		AndroidSizeWidget* androidSizeWidget = AndroidSizeModuleAssembly::buildWidget();
-		ui->androidTab->layout()->addWidget(androidSizeWidget);
+		_androidSizeView = androidSizeWidget;
+		_proportionView = proportionWidget;
+		_goldenRatioView = goldenRatioWidget;
 
 		_presenter->viewIsReady();
 	}

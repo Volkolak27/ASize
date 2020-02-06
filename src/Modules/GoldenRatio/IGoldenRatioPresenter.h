@@ -7,8 +7,8 @@
 class IGoldenRatioPresenter : public BasePresenter<IGoldenRatioView*>
 {
 	public:
-		virtual void sourceValueChanged(const double& newValue) = 0;
-		virtual void ratioPartChanged(const GoldenRatioPart& goldenRatioPart) = 0;
+		virtual void sourceValueChanged(const double& newValue, const GoldenRatioPart& newGoldenRatioPart) = 0;
+		virtual void resetToDefaultAction() = 0;
 };
 
 #endif // IGOLDENRATIOPRESENTER_H

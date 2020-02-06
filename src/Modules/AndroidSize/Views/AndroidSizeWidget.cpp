@@ -48,6 +48,11 @@ void AndroidSizeWidget::updateXXXHdpiValue(const QString& value)
 	ui->xxxhdpiValue->setText(value);
 }
 
+void AndroidSizeWidget::needToResetToDefault()
+{
+	_presenter->resetToDefaultAction();
+}
+
 void AndroidSizeWidget::showEvent(QShowEvent* event)
 {
 	if (!event) return;

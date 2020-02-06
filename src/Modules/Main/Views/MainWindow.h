@@ -1,8 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "src/Modules/AndroidSize/IAndroidSizeView.h"
+#include "src/Modules/GoldenRatio/IGoldenRatioView.h"
 #include "src/Modules/Main/IMainPresenter.h"
 #include "src/Modules/Main/IMainView.h"
+#include "src/Modules/Proportion/IProportionView.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -17,6 +20,11 @@ class MainWindow : public QMainWindow, public IMainView
 	private:
 		Ui::MainWindow* ui;
 		IMainPresenter* _presenter;
+
+		// Вьюхи модулей на вкладках
+		IAndroidSizeView* _androidSizeView;
+		IProportionView* _proportionView;
+		IGoldenRatioView* _goldenRatioView;
 
 	//// Методы
 	public:

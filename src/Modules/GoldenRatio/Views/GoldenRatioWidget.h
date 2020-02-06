@@ -29,10 +29,14 @@ class GoldenRatioWidget : public QWidget, public IGoldenRatioView
 		void updateShortValue(const QString& value) override;
 		void updateLongValue(const QString& value) override;
 		void updateWholeValue(const QString& value) override;
+		void needToResetToDefault() override;
 
 	protected:
 		// QWidget interface
 		void showEvent(QShowEvent* event) override;
+
+	private:
+		void checkValues();
 
 	private slots:
 		void on_sourceValue_textEdited(const QString& arg1);

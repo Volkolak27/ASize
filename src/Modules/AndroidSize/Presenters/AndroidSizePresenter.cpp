@@ -12,12 +12,7 @@ AndroidSizePresenter::~AndroidSizePresenter()
 
 void AndroidSizePresenter::viewIsReady()
 {
-	view()->updateLdpiValue("");
-	view()->updateMdpiValue("");
-	view()->updateHdpiValue("");
-	view()->updateXHdpiValue("");
-	view()->updateXXHdpiValue("");
-	view()->updateXXXHdpiValue("");
+	resetToDefault();
 }
 
 void AndroidSizePresenter::ldpiValueChanged(const double& newValue)
@@ -48,6 +43,11 @@ void AndroidSizePresenter::xxhdpiValueChanged(const double& newValue)
 void AndroidSizePresenter::xxxhdpiValueChanged(const double& newValue)
 {
 	calcSizes(newValue, AndroidDimension::XXXHDPI);
+}
+
+void AndroidSizePresenter::resetToDefaultAction()
+{
+	resetToDefault();
 }
 
 void AndroidSizePresenter::calcSizes(const double& fromValue, const AndroidDimension& fromDimension)
@@ -88,4 +88,14 @@ void AndroidSizePresenter::calcSizes(const double& fromValue, const AndroidDimen
 			QString::number( AndroidDimensionHelper::convert(fromValue, fromDimension, AndroidDimension::XXXHDPI) )
 		);
 	}
+}
+
+void AndroidSizePresenter::resetToDefault()
+{
+	view()->updateLdpiValue("");
+	view()->updateMdpiValue("");
+	view()->updateHdpiValue("");
+	view()->updateXHdpiValue("");
+	view()->updateXXHdpiValue("");
+	view()->updateXXXHdpiValue("");
 }

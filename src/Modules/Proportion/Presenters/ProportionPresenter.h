@@ -26,6 +26,7 @@ class ProportionPresenter : public IProportionPresenter
 		void bValueChanged(const double& newValue) override;
 		void dValueChanged(const double& newValue) override;
 		void mathOperationChanged(const MathOperation& newOperation) override;
+		void resetToDefaultAction() override;
 
 	private:
 		void calcProportion();

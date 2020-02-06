@@ -2,9 +2,9 @@
 
 ProportionPresenter::ProportionPresenter()
 {
-	_a = 200000;
+	_a = 0;
 	_b = 100;
-	_c = 40000;
+	_c = 0;
 	_d = 20;
 	_mathOperation = MathOperation::NONE;
 }
@@ -16,7 +16,8 @@ ProportionPresenter::~ProportionPresenter()
 
 void ProportionPresenter::viewIsReady()
 {
-	calcProportion();
+	view()->updateBValue( QString::number(_b) );
+	view()->updateDValue( QString::number(_d) );
 	calcMathOperation();
 }
 
@@ -41,6 +42,18 @@ void ProportionPresenter::dValueChanged(const double& newValue)
 void ProportionPresenter::mathOperationChanged(const MathOperation& newOperation)
 {
 	_mathOperation = newOperation;
+	calcMathOperation();
+}
+
+void ProportionPresenter::resetToDefaultAction()
+{
+	_a = _b = _c = _d = 0;
+	_mathOperation = MathOperation::NONE;
+
+	view()->updateAValue("");
+	view()->updateBValue("");
+	view()->updateCValue("");
+	view()->updateDValue("");
 	calcMathOperation();
 }
 

@@ -51,9 +51,9 @@ void ProportionWidget::updateMathOperation(const MathOperation& operationType)
 	switchMathOperationTo(operationType);
 }
 
-void ProportionWidget::toBack()
+void ProportionWidget::needToResetToDefault()
 {
-	// empty
+	_presenter->resetToDefaultAction();
 }
 
 void ProportionWidget::showEvent(QShowEvent* event)

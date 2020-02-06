@@ -13,6 +13,7 @@ class IAndroidSizePresenter : public BasePresenter<IAndroidSizeView*>
 		virtual void xhdpiValueChanged(const double& newValue) = 0;
 		virtual void xxhdpiValueChanged(const double& newValue) = 0;
 		virtual void xxxhdpiValueChanged(const double& newValue) = 0;
+		virtual void resetToDefaultAction() = 0;
 };
 
 #endif // IANDROIDSIZEPRESENTER_H

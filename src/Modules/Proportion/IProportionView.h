@@ -15,8 +15,7 @@ class IProportionView : public BaseView
 		virtual void updateACValue(const QString& value) = 0;
 		virtual void updateBDValue(const QString& value) = 0;
 		virtual void updateMathOperation(const MathOperation& operationType) = 0;
-
-		virtual void toBack() = 0;
+		virtual void needToResetToDefault() = 0;
 };
 
 #endif // IPROPORTIONVIEW_H

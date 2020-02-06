@@ -11,6 +11,7 @@ class IProportionPresenter : public BasePresenter<IProportionView*>
 		virtual void bValueChanged(const double& newValue) = 0;
 		virtual void dValueChanged(const double& newValue) = 0;
 		virtual void mathOperationChanged(const MathOperation& newOperation) = 0;
+		virtual void resetToDefaultAction() = 0;
 };
 
 #endif // IPROPORTIONPRESENTER_H

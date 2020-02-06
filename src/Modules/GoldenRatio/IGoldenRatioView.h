@@ -13,6 +13,7 @@ class IGoldenRatioView : public BaseView
 		virtual void updateShortValue(const QString& value) = 0;
 		virtual void updateLongValue(const QString& value) = 0;
 		virtual void updateWholeValue(const QString& value) = 0;
+		virtual void needToResetToDefault() = 0;
 };
 
 #endif // IGOLDENRATIOVIEW_H

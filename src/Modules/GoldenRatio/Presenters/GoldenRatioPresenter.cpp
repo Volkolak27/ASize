@@ -13,23 +13,31 @@ GoldenRatioPresenter::~GoldenRatioPresenter()
 
 void GoldenRatioPresenter::viewIsReady()
 {
-	view()->updateShortValue("");
-	view()->updateRatioPart(GoldenRatioPart::LONG);
+	resetToDefault();
+}
+
+void GoldenRatioPresenter::sourceValueChanged(const double& newValue, const GoldenRatioPart& newGoldenRatioPart)
+{
+	_sourceValue = newValue;
+	_goldenRatioPart = newGoldenRatioPart;
+	calcGoldenRatio();
+}
+
+void GoldenRatioPresenter::resetToDefaultAction()
+{
+	resetToDefault();
+}
+
+void GoldenRatioPresenter::resetToDefault()
+{
+	_sourceValue = 0;
+	_goldenRatioPart = GoldenRatioPart::LONG;
+
+	view()->updateSourceValue("");
+	view()->updateRatioPart(_goldenRatioPart);
 	view()->updateLongValue("");
 	view()->updateShortValue("");
 	view()->updateWholeValue("");
-}
-
-void GoldenRatioPresenter::sourceValueChanged(const double& newValue)
-{
-	_sourceValue = newValue;
-	calcGoldenRatio();
-}
-
-void GoldenRatioPresenter::ratioPartChanged(const GoldenRatioPart& goldenRatioPart)
-{
-	_goldenRatioPart = goldenRatioPart;
-	calcGoldenRatio();
 }
 
 void GoldenRatioPresenter::calcGoldenRatio()

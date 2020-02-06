@@ -19,10 +19,11 @@ class GoldenRatioPresenter : public IGoldenRatioPresenter
 		void viewIsReady() override;
 
 		// IGoldenRatioPresenter interface
-		void sourceValueChanged(const double& newValue) override;
-		void ratioPartChanged(const GoldenRatioPart& goldenRatioPart) override;
+		void sourceValueChanged(const double& newValue, const GoldenRatioPart& newGoldenRatioPart) override;
+		void resetToDefaultAction() override;
 
 	private:
+		void resetToDefault();
 		void calcGoldenRatio();
 };
 

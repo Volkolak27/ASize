@@ -56,6 +56,11 @@ void GoldenRatioWidget::updateWholeValue(const QString& value)
 	ui->wholeValue->setText(value);
 }
 
+void GoldenRatioWidget::needToResetToDefault()
+{
+	_presenter->resetToDefaultAction();
+}
+
 void GoldenRatioWidget::showEvent(QShowEvent* event)
 {
 	if (!event) return;
@@ -67,30 +72,47 @@ void GoldenRatioWidget::showEvent(QShowEvent* event)
 	}
 }
 
-void GoldenRatioWidget::on_sourceValue_textEdited(const QString& arg1)
+void GoldenRatioWidget::checkValues()
 {
+	QString sourceValue = ui->sourceValue->text();
 	bool isOk;
-	double value = arg1.toDouble(&isOk);
+	double value = sourceValue.toDouble(&isOk);
 
-	if (isOk) { _presenter->sourceValueChanged(value); }
+	if (sourceValue.isEmpty() || !isOk)
+	{
+		ui->longValue->clear();
+		ui->shortValue->clear();
+		ui->wholeValue->clear();
+	}
+	else
+	{
+		GoldenRatioPart goldenRatioPart;
+
+		switch (ui->type->currentIndex())
+		{
+			case 0:
+				goldenRatioPart = GoldenRatioPart::LONG;
+				break;
+			case 1:
+				goldenRatioPart = GoldenRatioPart::SHORT;
+				break;
+			case 2:
+			default:
+				goldenRatioPart = GoldenRatioPart::WHOLE;
+				break;
+		}
+
+		_presenter->sourceValueChanged(value, goldenRatioPart);
+	}
 }
 
-void GoldenRatioWidget::on_type_currentIndexChanged(int index)
+void GoldenRatioWidget::on_sourceValue_textEdited(const QString& arg1)
 {
-	GoldenRatioPart partForSelect;
+	if (arg1.isNull()) return;
+	checkValues();
+}
 
-	switch (index)
-	{
-		case GoldenRatioPart::LONG:
-			partForSelect = GoldenRatioPart::LONG;
-			break;
-		case GoldenRatioPart::SHORT:
-			partForSelect = GoldenRatioPart::SHORT;
-			break;
-		case GoldenRatioPart::WHOLE:
-			partForSelect = GoldenRatioPart::WHOLE;
-			break;
-	}
-
-	_presenter->ratioPartChanged(partForSelect);
+void GoldenRatioWidget::on_type_currentIndexChanged(int /*index*/)
+{
+	checkValues();
 }

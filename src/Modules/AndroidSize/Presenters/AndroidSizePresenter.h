@@ -21,9 +21,11 @@ class AndroidSizePresenter : public IAndroidSizePresenter
 		void xhdpiValueChanged(const double& newValue) override;
 		void xxhdpiValueChanged(const double& newValue) override;
 		void xxxhdpiValueChanged(const double& newValue) override;
+		void resetToDefaultAction() override;
 
 	private:
 		void calcSizes(const double& fromValue, const AndroidDimension& fromDimension);
+		void resetToDefault();
 };
 
 #endif // ANDROIDSIZEPRESENTER_H

@@ -31,7 +31,7 @@ class ProportionWidget : public QWidget, public IProportionView
 		void updateACValue(const QString& value) override;
 		void updateBDValue(const QString& value) override;
 		void updateMathOperation(const MathOperation& operationType) override;
-		void toBack() override;
+		void needToResetToDefault() override;
 
 	protected:
 		// QWidget interface
