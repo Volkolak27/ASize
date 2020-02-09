@@ -1,5 +1,7 @@
 #include "ProportionPresenter.h"
 
+#include "src/Utils/ProportionUtil.h"
+
 ProportionPresenter::ProportionPresenter()
 {
 	_a = 0;
@@ -59,7 +61,7 @@ void ProportionPresenter::resetToDefaultAction()
 
 void ProportionPresenter::calcProportion()
 {
-	_c = _a * _d / _b;
+	_c = ProportionUtil::solveProportion(_a, _b, _d);
 
 	view()->updateAValue( QString::number(_a) );
 	view()->updateBValue( QString::number(_b) );

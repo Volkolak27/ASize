@@ -7,12 +7,12 @@
 class IAndroidSizePresenter : public BasePresenter<IAndroidSizeView*>
 {
 	public:
-		virtual void ldpiValueChanged(const double& newValue) = 0;
-		virtual void mdpiValueChanged(const double& newValue) = 0;
-		virtual void hdpiValueChanged(const double& newValue) = 0;
-		virtual void xhdpiValueChanged(const double& newValue) = 0;
-		virtual void xxhdpiValueChanged(const double& newValue) = 0;
-		virtual void xxxhdpiValueChanged(const double& newValue) = 0;
+		virtual void ldpiValueChanged(const QString& newValue) = 0;
+		virtual void mdpiValueChanged(const QString& newValue) = 0;
+		virtual void hdpiValueChanged(const QString& newValue) = 0;
+		virtual void xhdpiValueChanged(const QString& newValue) = 0;
+		virtual void xxhdpiValueChanged(const QString& newValue) = 0;
+		virtual void xxxhdpiValueChanged(const QString& newValue) = 0;
 		virtual void resetToDefaultAction() = 0;
 };
 

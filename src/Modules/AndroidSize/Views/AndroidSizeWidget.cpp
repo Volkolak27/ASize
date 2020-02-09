@@ -96,50 +96,38 @@ void AndroidSizeWidget::copyValueFrom(const AndroidDimension& dimension)
 
 void AndroidSizeWidget::on_ldpiValue_textEdited(const QString& arg1)
 {
-	bool isOk;
-	double value = arg1.toDouble(&isOk);
-
-	if (isOk) { _presenter->ldpiValueChanged(value); }
+	if (arg1.isNull()) return;
+	_presenter->ldpiValueChanged(arg1);
 }
 
 void AndroidSizeWidget::on_mdpiValue_textEdited(const QString& arg1)
 {
-	bool isOk;
-	double value = arg1.toDouble(&isOk);
-
-	if (isOk) { _presenter->mdpiValueChanged(value); }
+	if (arg1.isNull()) return;
+	_presenter->mdpiValueChanged(arg1);
 }
 
 void AndroidSizeWidget::on_hdpiValue_textEdited(const QString& arg1)
 {
-	bool isOk;
-	double value = arg1.toDouble(&isOk);
-
-	if (isOk) { _presenter->hdpiValueChanged(value); }
+	if (arg1.isNull()) return;
+	_presenter->hdpiValueChanged(arg1);
 }
 
 void AndroidSizeWidget::on_xhdpiValue_textEdited(const QString& arg1)
 {
-	bool isOk;
-	double value = arg1.toDouble(&isOk);
-
-	if (isOk) { _presenter->xhdpiValueChanged(value); }
+	if (arg1.isNull()) return;
+	_presenter->xhdpiValueChanged(arg1);
 }
 
 void AndroidSizeWidget::on_xxhdpiValue_textEdited(const QString& arg1)
 {
-	bool isOk;
-	double value = arg1.toDouble(&isOk);
-
-	if (isOk) { _presenter->xxhdpiValueChanged(value); }
+	if (arg1.isNull()) return;
+	_presenter->xxhdpiValueChanged(arg1);
 }
 
 void AndroidSizeWidget::on_xxxhdpiValue_textEdited(const QString& arg1)
 {
-	bool isOk;
-	double value = arg1.toDouble(&isOk);
-
-	if (isOk) { _presenter->xxxhdpiValueChanged(value); }
+	if (arg1.isNull()) return;
+	_presenter->xxxhdpiValueChanged(arg1);
 }
 
 void AndroidSizeWidget::on_ldpiCopyButton_clicked()

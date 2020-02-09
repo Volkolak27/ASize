@@ -12,11 +12,11 @@ CONFIG += c++11
 QMAKE_LFLAGS += -no-pie
 
 # Копирование папки в директорию сборки
-#copydata.commands = $(COPY_DIR) $$PWD/data $$OUT_PWD
-#first.depends = $(first) copydata
-#export(first.depends)
-#export(copydata.commands)
-#QMAKE_EXTRA_TARGETS += first copydata
+copydata.commands = $(COPY_DIR) $$PWD/data $$OUT_PWD
+first.depends = $(first) copydata
+export(first.depends)
+export(copydata.commands)
+QMAKE_EXTRA_TARGETS += first copydata
 
 
 # Default rules for deployment.
@@ -44,7 +44,10 @@ SOURCES += \
 		src/Modules/Proportion/Assembly/ProportionModuleAssembly.cpp \
 		src/Modules/Proportion/Presenters/ProportionPresenter.cpp \
 		src/Modules/Proportion/Views/ProportionWidget.cpp \
-		src/Pattern/BaseView.cpp
+		src/Pattern/BaseView.cpp \
+		src/Utils/ProportionUtil.cpp \
+		src/Utils/QStringParserUtil/PartOfString.cpp \
+		src/Utils/QStringParserUtil/QStringParserUtil.cpp
 
 HEADERS += \
 		src/Enums/AndroidDimension.h \
@@ -80,7 +83,10 @@ HEADERS += \
 		src/Pattern/BasePresenter.h \
 		src/Pattern/BaseView.h \
 		src/Pattern/IMvpPresenter.h \
-		src/Pattern/IMvpView.h
+		src/Pattern/IMvpView.h \
+		src/Utils/ProportionUtil.h \
+		src/Utils/QStringParserUtil/PartOfString.h \
+		src/Utils/QStringParserUtil/QStringParserUtil.h
 
 FORMS += \
 		src/Modules/About/Views/AboutWindow.ui \

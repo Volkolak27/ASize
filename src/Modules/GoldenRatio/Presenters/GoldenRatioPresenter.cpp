@@ -1,5 +1,7 @@
 #include "GoldenRatioPresenter.h"
 
+#include "src/Utils/ProportionUtil.h"
+
 GoldenRatioPresenter::GoldenRatioPresenter()
 {
 	_sourceValue = 0;
@@ -42,8 +44,9 @@ void GoldenRatioPresenter::resetToDefault()
 
 void GoldenRatioPresenter::calcGoldenRatio()
 {
-	const double longKoef = 0.61803399;
+	const double longKoef  = 0.61803399;
 	const double shortKoef = 0.38196601;
+	const double wholeKoef = 1.00000000;
 
 	double longValue = 0.0;
 	double shortValue = 0.0;
@@ -53,17 +56,17 @@ void GoldenRatioPresenter::calcGoldenRatio()
 	{
 		case GoldenRatioPart::LONG:
 			longValue = _sourceValue;
-			shortValue = _sourceValue * shortKoef / longKoef;
-			wholeValue = _sourceValue / longKoef;
+			shortValue = ProportionUtil::solveProportion(_sourceValue, longKoef, shortKoef);
+			wholeValue = ProportionUtil::solveProportion(_sourceValue, longKoef, wholeKoef);
 			break;
 		case GoldenRatioPart::SHORT:
-			longValue = _sourceValue * longKoef / shortKoef;
+			longValue = ProportionUtil::solveProportion(_sourceValue, shortKoef, longKoef);
 			shortValue = _sourceValue;
-			wholeValue = _sourceValue / shortKoef;
+			wholeValue = ProportionUtil::solveProportion(_sourceValue, shortKoef, wholeKoef);
 			break;
 		case GoldenRatioPart::WHOLE:
-			longValue = _sourceValue * longKoef;
-			shortValue = _sourceValue * shortKoef;
+			longValue = ProportionUtil::solveProportion(_sourceValue, wholeKoef, longKoef);
+			shortValue = ProportionUtil::solveProportion(_sourceValue, wholeKoef, shortKoef);
 			wholeValue = _sourceValue;
 			break;
 	}

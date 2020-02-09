@@ -15,16 +15,16 @@ class AndroidSizePresenter : public IAndroidSizePresenter
 		void viewIsReady() override;
 
 		// IAndroidSizePresenter interface
-		void ldpiValueChanged(const double& newValue) override;
-		void mdpiValueChanged(const double& newValue) override;
-		void hdpiValueChanged(const double& newValue) override;
-		void xhdpiValueChanged(const double& newValue) override;
-		void xxhdpiValueChanged(const double& newValue) override;
-		void xxxhdpiValueChanged(const double& newValue) override;
+		void ldpiValueChanged(const QString& newValue) override;
+		void mdpiValueChanged(const QString& newValue) override;
+		void hdpiValueChanged(const QString& newValue) override;
+		void xhdpiValueChanged(const QString& newValue) override;
+		void xxhdpiValueChanged(const QString& newValue) override;
+		void xxxhdpiValueChanged(const QString& newValue) override;
 		void resetToDefaultAction() override;
 
 	private:
-		void calcSizes(const double& fromValue, const AndroidDimension& fromDimension);
+		void calcSizes(const QString& fromValue, const AndroidDimension& fromDimension);
 		void resetToDefault();
 };
 

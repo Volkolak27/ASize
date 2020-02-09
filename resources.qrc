@@ -8,4 +8,7 @@
     <qresource prefix="/app">
         <file alias="appicon">res/appicon.ico</file>
     </qresource>
+    <qresource prefix="/fonts">
+        <file alias="ubuntuR">res/fonts/Ubuntu-R.ttf</file>
+    </qresource>
 </RCC>
